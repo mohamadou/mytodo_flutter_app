@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+import 'package:mytodo_flutter_app/models/Task.dart';
+import 'task_tile.dart';
+
+class TaskList extends StatelessWidget {
+  final List<Task> tasks;
+  TaskList({this.tasks});
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: tasks.length,
+      itemBuilder: (context, index) {
+        return TaskTile(
+          name: tasks[index].name,
+          isDone: tasks[index].isDone,
+        );
+      },
+    );
+  }
+}
